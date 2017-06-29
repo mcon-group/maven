@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>2.31</version>
+	</parent>
+
+	<artifactId>artifactdownloader</artifactId>
+	<name>Artifact Downloader</name>
+	<version>1.1.3</version>
+	<packaging>hpi</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<aether.version>1.1.0</aether.version>
+		<maven.version>3.3.9</maven.version>
+		<jenkins.version>1.609.1</jenkins.version>
+	</properties>
+
+	<description>Artifact downloader adds a build step which allows to resolve artifacts from a maven repository like nexus.</description>
+	<url>https://wiki.jenkins-ci.org/display/JENKINS/Repository+Connector+Plugin</url>
+	<inceptionYear>2010</inceptionYear>
+	<developers>
+		<developer>
+			<id>imod</id>
+			<name>Dominik Bartholdi</name>
+			<email>-</email>
+		</developer>
+		<developer>
+			<id>mrumpf</id>
+			<name>Michael Rumpf</name>
+			<email>michael@rumpfonline.de</email>
+		</developer>
+	</developers>
+	<repositories>
+		<repository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<scm>
+		<connection>scm:git:ssh://github.com/jenkinsci/repository-connector-plugin.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jenkinsci/repository-connector-plugin.git</developerConnection>
+		<url>https://github.com/jenkinsci/repository-connector-plugin</url>
+		<tag>repository-connector-1.1.3</tag>
+	</scm>
+	<distributionManagement>
+		<repository>
+			<id>maven.jenkins-ci.org</id>
+			<url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jenkins-ci.tools</groupId>
+				<artifactId>maven-hpi-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<disabledTestInjection>true</disabledTestInjection>
+					<pluginFirstClassLoader>true</pluginFirstClassLoader>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-api</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-util</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-impl</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-transport-wagon</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-transport-file</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-transport-http</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.aether</groupId>
+			<artifactId>aether-connector-basic</artifactId>
+			<version>${aether.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-aether-provider</artifactId>
+			<version>${maven.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jenkins-ci.plugins</groupId>
+			<artifactId>token-macro</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+	</dependencies>
+</project>
