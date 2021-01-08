@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mcg.apitester</groupId>
+	<artifactId>apitester</artifactId>
+	<version>0.1.25</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>apitester-ui</module>
+		<module>apitester-api</module>
+		<module>apitester-impl</module>
+		<module>apitester-example</module>
+		<!-- >module>apitester-documentation</module-->
+	</modules>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<springboot.version>2.2.3.RELEASE</springboot.version>
+
+		<javax-servlet.version>3.1.0</javax-servlet.version>
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<commons-io.version>2.6</commons-io.version>
+		<javaruntype.version>1.2</javaruntype.version>
+		<fcs.version>2.18.1</fcs.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${javax-servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
